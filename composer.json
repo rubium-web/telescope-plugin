@@ -1,0 +1,25 @@
+{
+    "name": "rubium/telescope",
+    "description": "Laravel Telescope integration for OctoberCMS.",
+    "homepage": "https://github.com/rainlab/debugbar-plugin",
+    "type": "october-plugin",
+    "license": "MIT",
+    "keywords": ["october", "telescope"],
+    "authors": [
+        {
+            "name": "Rubium Web",
+            "email": "radist@rubium.ru",
+            "role": "Creator"
+        }
+    ],
+    "require": {
+        "laravel/telescope": "~3.0"
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": [
+                "laravel/telescope"
+            ]
+        }
+    }
+}
