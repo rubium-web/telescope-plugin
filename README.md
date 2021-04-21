@@ -1,21 +1,31 @@
-# Laravel Telescope
+# Laravel Telescope plugin for OctoberCMS
 
-Easily see what's going on under the hood of your October application.
+Provide [Laravel Telescope](https://laravel.com/docs/6.x/telescope) inside your OctoberCMS application.
+
+> Minimal requirement : OctoberCMS 1.1.x
 
 # Installation
 
-To install from the [Marketplace](https://octobercms.com/plugin/rainlab-debugbar), click on the "Add to Project" button and then select the project you wish to add it to and pay for the plugin. Once the plugin has been added to the project, go to the backend and check for updates to pull in the plugin.
+To install from the [Marketplace](https://octobercms.com/plugin/rubium-telescope-plugin), click on the "Add to Project" button and then select the project you wish to add it to and pay for the plugin. Once the plugin has been added to the project, go to the backend and check for updates to pull in the plugin.
 
-To install from the backend, go to **Settings -> Updates & Plugins -> Install Plugins** and then search for `RainLab.DebugBar`.
+To install from the backend, go to **Settings -> Updates & Plugins -> Install Plugins** and then search for `Rubium.Telescope`.
 
-To install from [the repository](https://github.com/rainlab/debugbar-plugin), clone it into **plugins/rainlab/debugbar** and then run `composer update` from your project root in order to pull in the dependencies.
+To install from [the repository](https://github.com/rubium-web/telescope-plugin), clone it into **plugins/rubium/telescope** and then run `composer update` from your project root in order to pull in the dependencies.
 
-To install it with Composer, run `composer require rainlab/debugbar-plugin` from your project root.
+To install it with Composer, run `composer require rubium/telescope-plugin` from your project root.
+
+After installing plugin publish the Telescope's assets `php artisan vendor:publish --tag=telescope-assets`
 
 ### Usage
 
-Set `debug` to `true` in `config/app.php`, and the debugbar should appear on your site to all authenticated backend users with the `rainlab.debugbar.access_debugbar` permission. If you would like to make the debugbar accessible to all users regardless of authentication & permissions, then set `allow_public_access` to `true` in `config/rainlab/debugbar/config.php`.
+Set `APP_ENV` to `local` in `.env`.
 
-See [barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar) for more usage instructions and documentation.
+If you need to change the configuration, publish the config file
 
-To include exceptions in the response header of ajax calls set `debugAjax` to `true` in `config/app.php`.
+`php artisan vendor:publish --tag=telescope-config`
+
+## Dark mode
+
+You can enable dark mode in your .env file: `ENABLE_TELESCOPE_DARK_MODE=true`
+
+See [Laravel Telescope](https://laravel.com/docs/telescope) for more usage instructions and documentation.
