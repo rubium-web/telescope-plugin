@@ -1,7 +1,7 @@
 {
-    "name": "rubium/telescope",
+    "name": "rubium/telescope-plugin",
     "description": "Laravel Telescope integration for OctoberCMS.",
-    "homepage": "https://github.com/rainlab/debugbar-plugin",
+    "homepage": "https://github.com/rubium-web/telescope-plugin",
     "type": "october-plugin",
     "license": "MIT",
     "keywords": ["october", "telescope"],
