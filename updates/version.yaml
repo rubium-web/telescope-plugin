@@ -1,3 +1,5 @@
 1.0.1: 
   - First version of Telescope
   - 2018_08_08_100000_create_telescope_entries_table.php
+1.0.2: 
+  - Small fixes
