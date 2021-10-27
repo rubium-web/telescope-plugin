@@ -1,6 +1,10 @@
-<?php namespace Rubium\Telescope\Classes\Providers;
+<?php 
 
-use Illuminate\Support\Facades\Gate;
+declare(strict_types=1);
+
+namespace Rubium\Telescope\Classes\Providers;
+
+use BackendAuth;
 use Laravel\Telescope\IncomingEntry;
 use Laravel\Telescope\Telescope;
 use Laravel\Telescope\TelescopeApplicationServiceProvider;
@@ -14,7 +18,6 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
      */
     public function register()
     {
-        // Telescope::night();
 
         $this->hideSensitiveRequestDetails();
 
@@ -38,12 +41,17 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
      */
     protected function authorization()
     {
-        $this->gate();
+        Telescope::auth(function ($request) {
 
-        // Telescope::auth(function ($request) {
-        //     return app()->environment('local') ||
-        //            Gate::check('viewTelescope', [$request->user()]);
-        // });
+            if (!BackendAuth::check()) {
+                return false;
+            }
+
+            /** @var User $user */
+            $user = BackendAuth::getUser();
+
+            return $user->isSuperUser() || $user->hasPermission('rubium.telescope.access');
+        });
     }
 
     /**
@@ -64,22 +72,5 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
             'x-csrf-token',
             'x-xsrf-token',
         ]);
-    }
-
-    /**
-     * Register the Telescope gate.
-     *
-     * This gate determines who can access Telescope in non-local environments.
-     *
-     * @return void
-     */
-    protected function gate()
-    {
-        Gate::define('viewTelescope', function ($user) {
-            dd($user);
-            return in_array($user->email, [
-                //
-            ]);
-        });
     }
 }
