@@ -10,12 +10,12 @@ use System\Classes\PluginBase;
 
 /**
  * Telescope Plugin Information File
+ * @author  Rubium Web, hello@ruibum.ru
  */
 class Plugin extends PluginBase
 {
     /**
      * Returns information about this plugin.
-     * @author  Rubium Web, hello@ruibum.ru
      *
      * @return array
      */
