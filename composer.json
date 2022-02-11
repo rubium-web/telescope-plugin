@@ -3,7 +3,7 @@
     "description": "Laravel Telescope integration for OctoberCMS.",
     "homepage": "https://github.com/rubium-web/telescope-plugin",
     "type": "october-plugin",
-    "license": "MIT",
+    "license": "proprietary",
     "keywords": ["october", "telescope"],
     "authors": [
         {

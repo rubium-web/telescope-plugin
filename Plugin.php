@@ -15,6 +15,7 @@ class Plugin extends PluginBase
 {
     /**
      * Returns information about this plugin.
+     * @author  Rubium Web, hello@ruibum.ru
      *
      * @return array
      */
